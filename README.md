@@ -4,7 +4,14 @@ This repo contains our public site https://kaizendorks.github.io hosted on [GitH
 
 Any changes committed to master are automatically picked up by GitHub and deployed.
 
-## Local setup
+## Local setup (Docker)
+
+1. Build image: `docker-compose build`
+1. Run app: `docker-compose up`
+1. By default exposes app on `http://localhost:4000`
+1. Clean up: `docker-compose down`
+
+## Local setup (Native)
 
 From the steps at: https://help.github.com/en/articles/setting-up-your-github-pages-site-locally-with-jekyll
 
