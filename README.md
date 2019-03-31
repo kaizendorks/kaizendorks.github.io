@@ -20,3 +20,11 @@ From the steps at: https://help.github.com/en/articles/setting-up-your-github-pa
 1. Clone this repo
 1. Install all the dependencies in the Gemfile `bundle install`
 1. Preview locally with `bundle exec jekyll serve`, by default it opens on http://localhost:4000
+
+## Theming
+
+This site uses the [minimal mistakes](https://github.com/mmistakes/minimal-mistakes) Jekyll theme.
+
+Check their docs for instructions on how to use/configure the theme: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+
+**TODO**: how to use the theme in github pages? https://pages.github.com/themes/
