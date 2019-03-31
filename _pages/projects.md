@@ -7,4 +7,4 @@ entries_layout: grid
 classes: wide
 ---
 
-These are the projects we have worked on so far:
+This page lists all the projects we have worked on so far
