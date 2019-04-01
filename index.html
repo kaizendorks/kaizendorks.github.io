@@ -22,24 +22,15 @@ feature_row:
 
 <h3 class="archive__subtitle">Projects</h3>
 
-Check some of the open source projects we have started. You might even get interested and contribute to one of them?
-
+<p class="text-center">
+  Check some of the open source projects we have started. You might even get interested and contribute to one of them?
+</p>
 {% include feature_row %}
 
-{% comment %}
-<h3 class="archive__subtitle">Projects</h3>
-
-<div class="feature__wrapper entries-grid">
-  {% assign sorted_projects = site.projects | sort: 'title' %}
-  {% for post in sorted_projects %}
-    {% include archive-single.html type="grid" %}
-  {% endfor %}
-</div>
-{% endcomment %}
-
 <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
-
-Have some free time? Maybe read through one of our blog posts.
+<p class="text-center">
+    Have some free time? Maybe read through one of our blog posts.
+</p>
 
 {% for post in paginator.posts %}
   {% include archive-single.html %}
