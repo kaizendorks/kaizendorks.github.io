@@ -1,30 +1,57 @@
-# Kaizend Dorks public site
+# Kaizen Dorks website
 
-This repo contains our public site https://kaizendorks.github.io hosted on [GitHub pages](https://help.github.com/en#github-pages-basics).
+Welcome to the source code of the Kaizen Dorks website!
 
-Any changes committed to master are automatically picked up by GitHub and deployed.
+The latest version of the site is available at https://kaizendorks.github.io/.
 
-## Local setup (Docker)
+## Stack
+This website was:
 
-1. Build image: `docker-compose build`
-1. Run app: `docker-compose up`
-1. By default exposes app on `http://localhost:4000`
-1. Clean up: `docker-compose down`
+- Built using [vuepress](https://vuepress.vuejs.org/) and the [vuepress-theme-blog](https://vuepress-theme-blog.ulivz.com/).
+- Scaffolded using [create-vuepress](https://github.com/vuepressjs/create-vuepress) as per official [vuepress-theme-blog guidance](https://vuepress-theme-blog.ulivz.com/#quick-start).
+- Published to GitHub pages as per official [vuepress guidance](https://vuepress.vuejs.org/guide/deploy.html#github-pages).
 
-## Local setup (Native)
+## Development
 
-From the steps at: https://help.github.com/en/articles/setting-up-your-github-pages-site-locally-with-jekyll
+You can get the site running locally with a few steps:
 
-1. Install ruby 2.1.0 or higher
-1. Install bundler gem `gem install bundler`
 1. Clone this repo
-1. Install all the dependencies in the Gemfile `bundle install`
-1. Preview locally with `bundle exec jekyll serve`, by default it opens on http://localhost:4000
+    ```bash
+    git clone git@github.com:kaizendorks/kaizendorks.github.io.git
+    ```
+1. cd into the folder where it was cloned
+    ```bash
+    cd kaizendorks.github.io
+    ```
+1. Install the dependencies
+    ```bash
+    npm i
+    ```
+1. Run the local development server
+    ```bash
+    npm run dev
+    ```
 
-## Theming
+Then head to http://localhost:8080 in your browser.
+> If the port was in use, a different one will be used. Pay attention to the output of the command.
 
-This site uses the [minimal mistakes](https://github.com/mmistakes/minimal-mistakes) Jekyll theme.
+## Deployment
 
-Check their docs for instructions on how to use/configure the theme: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+The site is deployed to GitHub pages as per official [vuepress guidance](https://vuepress.vuejs.org/guide/deploy.html#github-pages).
 
-**TODO**: how to use the theme in github pages? https://pages.github.com/themes/
+In order to deploy:
+1. Configure GitHub pages for your repo as per the [vuepress guidance](https://vuepress.vuejs.org/guide/deploy.html#github-pages).
+1. Generate the production files with
+    ```bash
+    npm rub build
+    ```
+1. Commit the files
+    ```bash
+    git add .
+    git commit -m "publishing latest changes"
+    ```
+1. Push the changes to the remote
+    ```bash
+    git push
+    ```
+
