@@ -79,7 +79,8 @@ export default {
       return [
         {
           'sidebar-open': this.isSidebarOpen,
-          'no-sidebar': !this.shouldShowSidebar
+          'no-sidebar': !this.shouldShowSidebar,
+          'home-page': this.$page.frontmatter.home,
         },
         userPageClass
       ]
@@ -108,8 +109,8 @@ export default {
   word-wrap break-word
 
 .content-wrapper
-  padding 160px 15px 80px 15px
-  min-height calc(100vh - 80px - 60px - 160px)
+  padding 130px 15px 80px 15px
+  min-height calc(100vh - 80px - 60px - 130px)
   max-width $contentWidth
   margin 0 auto
 
@@ -117,4 +118,13 @@ export default {
     &
       padding 100px 15px 20px 15px
       min-height calc(100vh - 20px - 60px - 100px)
+
+&.home-page
+  .content-wrapper
+    padding-top 60px
+    min-height calc(100vh - 80px - 60px - 60px)
+    @media (max-width: $MQMobile)
+      &
+        min-height calc(100vh - 20px - 60px - 60px)
+
 </style>
