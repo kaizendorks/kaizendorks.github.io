@@ -7,9 +7,17 @@ The latest version of the site is available at https://kaizendorks.github.io/.
 ## Stack
 This website was:
 
-- Built using [vuepress](https://vuepress.vuejs.org/) and the [vuepress-theme-blog](https://vuepress-theme-blog.ulivz.com/).
-- Scaffolded using [create-vuepress](https://github.com/vuepressjs/create-vuepress) as per official [vuepress-theme-blog guidance](https://vuepress-theme-blog.ulivz.com/#quick-start).
+- Built using [vuepress](https://vuepress.vuejs.org/) and the [@vuepress/theme-blog](https://vuepress-theme-blog.ulivz.com/).
+- Scaffolded using [create-vuepress](https://github.com/vuepressjs/create-vuepress) as per official [@vuepress/theme-blog guidance](https://vuepress-theme-blog.ulivz.com/#quick-start).
 - Published to GitHub pages as per official [vuepress guidance](https://vuepress.vuejs.org/guide/deploy.html#github-pages).
+
+The default `@vuepress/theme-blog` has been modified with the following changes:
+
+- Added the sidebar from [@vuepress/theme-default](https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/theme-default)
+- Overwrote the `GlobalLayout` to display the sidebar when enabled in FrontMatter
+- Overwrote the `Header` to display the logo next to the title
+
+See the official vuepress docs on [theme inheritance](https://vuepress.vuejs.org/theme/inheritance.html).
 
 ## Development
 

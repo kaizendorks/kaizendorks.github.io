@@ -144,4 +144,9 @@ export default {
 
     .header-right-wrap
       display none
+
+@media (max-width: $MQNarrow)
+  #header
+    .title
+      display none
 </style>
