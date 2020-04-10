@@ -77,7 +77,7 @@ export default {
 
   .title
     /* flex 0 0 200px */
-    font-size 30px
+    font-size 24px
     margin 0
     letter-spacing 2px
     display block
