@@ -9,11 +9,16 @@
 @import "vuepress-plugin-container"
 
 body
-  margin: 0
+  margin 0
   .content__default
-    margin: 8px
+    margin 8px
 
 img.home__logo
-  display:block
-  margin:auto
+  display block
+  margin auto
 
+// tweak to @vuepress/theme-blog
+.content__default:not(.custom)
+  > h1, h2, h3, h4, h5, h6
+    margin-top: 0
+    padding-top: 0
