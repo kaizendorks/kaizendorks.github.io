@@ -1,0 +1,55 @@
+// TODO: better integrate styles from @vuepress/theme-default and @vuepress/theme-blog
+.sidebar-mask
+  position fixed
+  z-index 9
+  top 0
+  left 0
+  width 100vw
+  height 100vh
+  display none
+
+.sidebar
+  font-size 16px
+  background-color #fff
+  width $sidebarWidth
+  position fixed
+  z-index 10
+  margin 0
+  margin-bottom 60px // same as @vuepress/theme-blog footer
+  top 80px // same as @vuepress/theme-default navbar
+  left 0
+  bottom 0
+  box-sizing border-box
+  border-right 1px solid $borderColor
+  overflow-y auto
+
+.page
+  padding-left $sidebarWidth
+
+.theme-container
+  &.sidebar-open
+    .sidebar-mask
+      display: block
+
+    .page
+      max-width 740px
+      margin 0 auto
+      padding 2rem 2.5rem
+
+
+  // &.no-navbar
+  //   {$contentClass}:not(.custom) > h1, h2, h3, h4, h5, h6
+  //     margin-top 1.5rem
+  //     padding-top 0
+
+  //   .sidebar
+  //     top 0
+
+
+@media (min-width: ($MQMobile + 1px))
+  .theme-container.no-sidebar
+    .sidebar
+      display none
+
+    .page
+      padding-left 15px
