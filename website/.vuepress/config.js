@@ -32,12 +32,16 @@ module.exports = {
         link: '/projects/',
       },
       {
+        text: 'Tutorials',
+        link: '/tutorials/',
+      },
+      {
         text: 'Tags',
         link: '/tag/',
       },
       {
-        text: 'Tutorials',
-        link: '/tutorials/',
+        text: 'Members',
+        link: '/members',
       },
     ],
     // See https://vuepress-theme-blog.ulivz.com/#footer
@@ -142,5 +146,11 @@ module.exports = {
         },
       },
     ],
-  ]
+  ],
+  // configureWebpack: (config, isServer) => {
+  //   if (!isServer) {
+  //     // mutate the config for client
+  //     config.externals = [/cdn.jsdelivr.net/i]
+  //   }
+  // }
 }

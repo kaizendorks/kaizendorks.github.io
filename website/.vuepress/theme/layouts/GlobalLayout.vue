@@ -81,6 +81,7 @@ export default {
           'sidebar-open': this.isSidebarOpen,
           'no-sidebar': !this.shouldShowSidebar,
           'home-page': this.$page.frontmatter.home,
+          'centered': this.$page.frontmatter.centered,
         },
         userPageClass
       ]
@@ -118,6 +119,12 @@ export default {
     &
       padding 100px 15px 20px 15px
       min-height calc(100vh - 20px - 60px - 100px)
+
+&.centered
+  .content__default
+    text-align center
+    justify-content center
+    align-items center
 
 &.home-page
   .content-wrapper
