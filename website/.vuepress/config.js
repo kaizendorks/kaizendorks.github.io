@@ -58,7 +58,11 @@ module.exports = {
           link: 'https://policies.google.com/privacy?hl=en-US',
         },
         {
-          text: 'MIT Licensed | Copyright © 2020-present Kaizen Dorks',
+          text: 'CC BY 4.0 License',
+          link: 'https://creativecommons.org/licenses/by/4.0/',
+        },
+        {
+          text: 'Copyright © 2020-present Kaizen Dorks',
           link: '',
         },
       ],
@@ -86,10 +90,14 @@ module.exports = {
           path: '/projects',
           collapsable: false,
           children: [
-            ['/projects/vue-autowire', 'vue-autowire'],
+            ['/projects/nexus-operator', 'nexus-operator'],
             ['/projects/pymongo-inmemory', 'pymongo-inmemory'],
+            ['/projects/vue-autowire', 'vue-autowire'],
+            ['/projects/vuecli-in-docker', 'vuecli-in-docker'],
+            ['/projects/vue-cli-plugin-auth0', 'vue-cli-plugin-auth0'],
+            ['/projects/vue-cli-plugin-jest-puppeteer', 'vue-cli-plugin-jest-puppeteer'],
+            ['/projects/vue-cli-plugin-vuedock', 'vue-cli-plugin-vuedock'],
           ],
-          // path: '/projects/vue-autowire'
         }
       ],
       '/tutorials/': [
@@ -112,7 +120,7 @@ module.exports = {
       {
         type: 'tip',
         defaultTitle: {
-          '/': 'TIP',
+          '/': '',
         },
       },
     ],
@@ -121,7 +129,7 @@ module.exports = {
       {
         type: 'warning',
         defaultTitle: {
-          '/': 'WARNING',
+          '/': '',
         },
       },
     ],
@@ -130,7 +138,7 @@ module.exports = {
       {
         type: 'danger',
         defaultTitle: {
-          '/': 'DANGER',
+          '/': '',
         },
       },
     ],

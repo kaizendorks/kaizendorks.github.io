@@ -4,7 +4,7 @@ sidebar: true
 sidebarDepth: 0
 date: 2020-04-03
 tags:
-  - kubernetes
+  - Kubernetes
   - tutorial
 author: Daniel
 location: Dublin, Ireland

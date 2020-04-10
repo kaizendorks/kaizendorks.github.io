@@ -11,13 +11,20 @@ This website was:
 - Scaffolded using [create-vuepress](https://github.com/vuepressjs/create-vuepress) as per official [@vuepress/theme-blog guidance](https://vuepress-theme-blog.ulivz.com/#quick-start).
 - Published to GitHub pages as per official [vuepress guidance](https://vuepress.vuejs.org/guide/deploy.html#github-pages).
 
+### Changes to default themes
 The default `@vuepress/theme-blog` has been modified with the following changes:
 
 - Added the sidebar from [@vuepress/theme-default](https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/theme-default)
 - Overwrote the `GlobalLayout` to display the sidebar when enabled in FrontMatter
 - Overwrote the `Header` to display the logo next to the title
+- Made a mess of the styles! Cleanly merging the styles of both themes is still pending :)
 
 See the official vuepress docs on [theme inheritance](https://vuepress.vuejs.org/theme/inheritance.html).
+
+### Github cards
+You will see both GitHub profile and repo cards across the website.
+- Profile cards are generated with [https://lab.lepture.com/github-cards/](https://lab.lepture.com/github-cards/)
+- Repo cards are generated with [https://gh-card.dev/](https://gh-card.dev/)
 
 ## Development
 
