@@ -57,4 +57,4 @@ See the [documentation](https://github.com/DaniJG/sinon-mongo) for the full API 
 
 Check it on GitHub:
 
-[![DaniJG/sinon-mongo - GitHub](https://gh-card.dev/repos/DaniJG/sinon-mongo.svg?fullname=)](https://github.com/DaniJG/sinon-mongo)
+[![DaniJG/sinon-mongo - GitHub](https://gh-card.dev/repos/danijg/sinon-mongo.svg?fullname=)](https://github.com/danijg/sinon-mongo)

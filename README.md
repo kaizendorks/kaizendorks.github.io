@@ -25,7 +25,7 @@ See the official vuepress docs on [theme inheritance](https://vuepress.vuejs.org
 ### Github cards
 You will see both GitHub profile and repo cards across the website.
 - Profile cards are generated with [https://lab.lepture.com/github-cards/](https://lab.lepture.com/github-cards/)
-- Repo cards are generated with [https://gh-card.dev/](https://gh-card.dev/)
+- Repo cards are generated with [https://gh-card.dev/](https://gh-card.dev/). Note the repo should have a description!
 
 ## Development
 

@@ -13,7 +13,7 @@ location: Dublin, Ireland
 
 ## Why another tutorial?
 
-Getting started with [Kubernetes](https://kubernetes.io/) is not easy, there is quite a learning curve before most people feel comfortable interacting and managing their cluster. That’s why we have created this tutorial, so it is easy for everyone working with CHIPS to learn the basic Kubernetes core concepts and patterns they will need.
+Getting started with [Kubernetes](https://kubernetes.io/) is not easy, there is quite a learning curve before most people feel comfortable interacting and/or managing their cluster.
 
 The tutorial is aimed at developers with no previous experience of Kubernetes, however it assumes some basic knowledge of [docker/containers](https://www.docker.com/), networking and web applications.
 

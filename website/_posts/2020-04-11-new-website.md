@@ -7,12 +7,12 @@ tags:
   - GitHub pages
 author: Daniel
 location: Dublin, Ireland
-summary: I have been postponing the moment to rewrite the Kaizen Dorks website for far too much time. It's been roughly a year (13 months according to the GitHub history) since I created the initial version of the website using Jekyll.
+summary: I have been postponing the moment to rewrite the Kaizen Dorks website far too long. It's been roughly a year (13 months according to the GitHub history) since I created the initial version of the website using Jekyll.
 ---
 
 # A new website for Kaizen Dorks
 
-I have been postponing the moment to rewrite the Kaizen Dorks website for far too much time.
+I have been postponing the moment to rewrite the Kaizen Dorks website far too long.
 
 It's been roughly a year (13 months according to the [GitHub history](https://github.com/kaizendorks/kaizendorks.github.io/commit/45a134dc01de75639495b02b4ce2c2f7b2ee37a0)) since I created the initial version of the website using Jekyll.
 
