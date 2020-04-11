@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Kaizen Dorks',
   description: 'Official site of Kaizen Dorks Dublin',
+  dest: 'wwwroot',
   // Since we have extended the @vuepress/theme-blog, we just let vuepress pick the theme from the /theme folder
   // theme: '@vuepress/theme-blog', // OR shortcut: @vuepress/blog
   themeConfig: {
@@ -110,7 +111,7 @@ module.exports = {
           title: 'Kubernetes',
           children: [
             ['kubernetes/', 'Welcome'],
-            ['kubernetes/1-getting-started', 'Getting Started'],
+            ['kubernetes/1-clusters-nodes', 'Clusters and Nodes'],
             ['kubernetes/2-basic-kubernetes-objects', 'Basic Kubernetes Objects'],
             ['kubernetes/3-basic-networking', 'Basic Networking'],
           ],
@@ -147,10 +148,10 @@ module.exports = {
       },
     ],
   ],
-  // configureWebpack: (config, isServer) => {
-  //   if (!isServer) {
-  //     // mutate the config for client
-  //     config.externals = [/cdn.jsdelivr.net/i]
-  //   }
-  // }
+  configureWebpack: (config, isServer) => {
+    if (!isServer) {
+      // doesnt seem to be necessary once the inline script for github profile badges was moved to a Vue component rather than the markdown files
+      // config.externals = [/cdn.jsdelivr.net/i]
+    }
+  }
 }
