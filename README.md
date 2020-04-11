@@ -14,9 +14,10 @@ This website was:
 ### Changes to default themes
 The default `@vuepress/theme-blog` has been modified with the following changes:
 
-- Added the sidebar from [@vuepress/theme-default](https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/theme-default)
+- Added the sidebar from [@vuepress/theme-default](https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/theme-default). See the docs [for usage](https://vuepress.vuejs.org/theme/default-theme-config.html#sidebar)
 - Overwrote the `GlobalLayout` to display the sidebar when enabled in FrontMatter
 - Overwrote the `Header` to display the logo next to the title
+- Copied the `vuepress-plugin-container` configuration and styles from the [@vuepress/theme-default](https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/theme-default). See the docs [for usage](https://vuepress.vuejs.org/theme/default-theme-config.html#sidebar)
 - Made a mess of the styles! Cleanly merging the styles of both themes is still pending :)
 
 See the official vuepress docs on [theme inheritance](https://vuepress.vuejs.org/theme/inheritance.html).

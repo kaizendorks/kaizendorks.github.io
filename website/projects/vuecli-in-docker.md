@@ -8,6 +8,7 @@ tags:
   - Vue CLI
   - npm
   - Docker
+  - Docker Hub
 author: Ruben
 location: Dublin, Ireland
 summary: A Docker image wrapping the Vue CLI so you can use it without the need to install locally using npm/yarn.
