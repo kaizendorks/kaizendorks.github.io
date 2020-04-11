@@ -111,9 +111,9 @@ module.exports = {
           title: 'Kubernetes',
           children: [
             ['kubernetes/', 'Welcome'],
-            ['kubernetes/1-clusters-nodes', 'Clusters and Nodes'],
-            ['kubernetes/2-basic-kubernetes-objects', 'Basic Kubernetes Objects'],
-            ['kubernetes/3-basic-networking', 'Basic Networking'],
+            ['kubernetes/1-clusters-nodes', '1. Clusters and Nodes'],
+            ['kubernetes/2-basic-kubernetes-objects', '2. Basic Kubernetes Objects'],
+            ['kubernetes/3-basic-networking', '3. Basic Networking'],
           ],
         },
       ]
