@@ -97,6 +97,7 @@ module.exports = {
           children: [
             ['/projects/nexus-operator', 'nexus-operator'],
             ['/projects/pymongo-inmemory', 'pymongo-inmemory'],
+            ['/projects/sinon-mongo', 'sinon-mongo'],
             ['/projects/vue-autowire', 'vue-autowire'],
             ['/projects/vuecli-in-docker', 'vuecli-in-docker'],
             ['/projects/vue-cli-plugin-auth0', 'vue-cli-plugin-auth0'],
