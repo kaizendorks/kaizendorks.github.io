@@ -208,3 +208,5 @@ You should get a 503 response with the expected Kibana server is not ready yet m
 :::
 
 And this finishes the overview on the basic Kuberntes networking features. As an exercise, try to deploy an [elasticsearch](https://www.elastic.co/products/elasticsearch) server to the cluster and connect it to your kibana Deployment!
+
+[Prev module](./2-basic-kubernetes-objects.md)

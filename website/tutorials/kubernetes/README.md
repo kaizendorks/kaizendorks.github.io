@@ -72,3 +72,5 @@ Make sure you don't close the window once you reach the end of the tutorial, you
 ::: warning
 Katacode online environments expire after minutes without activity. If this happens you will need to complete again the steps in the Katacoda tutorial plus any steps of this tutorial to go back to the point you were
 :::
+
+[Next module](./1-clusters-nodes.md)

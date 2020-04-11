@@ -197,3 +197,5 @@ The output should display the same containers you saw in your command line:
 
 And this concludes the initial module of the tutorial.
 Feel free to explore further the dashboard, for example accessing the logs of one of those `Pods`, or viewing their properties. While it might not make complete sense, you will be able to connect the dots faster in the next module as we take a deeper look at basic objects such as `Pod` or `Namespace`.
+
+[Prev module](./) | [Next module](./2-basic-kubernetes-objects.md)
