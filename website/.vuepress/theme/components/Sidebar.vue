@@ -41,14 +41,14 @@ export default {
       font-weight 600
     .nav-item, .repo-link
       display block
-      line-height 1.25rem
-      font-size 1.1em
+      line-height 0.9rem
+      font-size 0.8em
       padding 0.5rem 0 0.5rem 1.5rem
   & > .sidebar-links
     padding 1.5rem 0
     & > li > a.sidebar-link
-      font-size 1.1em
-      line-height 1.7
+      font-size 0.8em
+      line-height 0.9rem
       font-weight bold
     & > li:not(:first-child)
       margin-top .75rem
