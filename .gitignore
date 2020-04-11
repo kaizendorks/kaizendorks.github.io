@@ -5,6 +5,7 @@ npm-debug.log
 coverage/
 run
 dist
+wwwroot
 .DS_Store
 .nyc_output
 .basement

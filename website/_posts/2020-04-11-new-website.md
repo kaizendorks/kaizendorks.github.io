@@ -87,7 +87,7 @@ Now that the site is ready and feels fresh, I personally have _big plans_ to wri
 
 It could be interesting to extract a new tutorial from my experience getting static sites in GitHub pages, explorying different static site generators such as [Jekyll](https://jekyllrb.com/), [gatsby.js](https://www.gatsbyjs.org/) and [vuepress](https://vuepress.vuejs.org/).
 
-I am not sure everyone realizes how straightforward it is to get your own site hosted on GitHub pages, or a documentation site, or your professional presentation site.
+I am not sure everyone realizes how straightforward it is to get your own site hosted on GitHub pages, or a documentation site, or your professional presentation site. At the same time, publishing a _user repo_ type of GitHub pages is a different mattern from _repo's doc_ type. The [vuepress docs](https://vuepress.vuejs.org/guide/deploy.html#github-pages) does give you the wright publish steps but do not stress the point enough. If you have published doc sites, you might be [caught by surprise](https://dev.to/javascripterika/deploy-a-react-app-as-a-github-user-page-with-yarn-3fka).
 
 After several different [Vue CLI plugins](/tag/Vue%20CLI/), I feel like we could also write another one on how to create, test and publish one of these plugins.
 

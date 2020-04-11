@@ -39,6 +39,10 @@ You can get the site running locally with a few steps:
     ```bash
     cd kaizendorks.github.io
     ```
+1. Switch to the **source branch**! This is very important since the master branch contains _the generated site_!
+    ```bash
+    git checkout source
+    ```
 1. Install the dependencies
     ```bash
     npm i
@@ -57,17 +61,13 @@ The site is deployed to GitHub pages as per official [vuepress guidance](https:/
 
 In order to deploy:
 1. Configure GitHub pages for your repo as per the [vuepress guidance](https://vuepress.vuejs.org/guide/deploy.html#github-pages).
-1. Generate the production files with
+1. Make sure you are in the **source branch**, and not in master
+1. Run the deploy script
     ```bash
-    npm rub build
-    ```
-1. Commit the files
-    ```bash
-    git add .
-    git commit -m "publishing latest changes"
-    ```
-1. Push the changes to the remote
-    ```bash
-    git push
+    ./deploy.sh
     ```
 
+The deploy script essentially:
+1. runs the vuepress build command `npm run build`
+1. switches over to the folder where the static contents are generated `cd ./wwwroot`
+1. overwrites the master branch with the contents of that folder `git push -f`
