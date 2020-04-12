@@ -1,0 +1,58 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy to GitHub pages
+
+# Controls when the action will run.
+# In this case, when changes are made to the source branch
+on:
+  push:
+    branches: [ source ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+
+    # Installs dependencies and generates static files
+    - name: Generate static files in wwwroot
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - run: npm ci
+    - run: npm run build
+
+    # - name: Run a multi-line script
+    #   run: |
+    #     cd wwwroot,
+    #     echo test, and deploy your project.
+
+    - name: Init new repo in wwwroot and commit generated files
+      run: |
+        cd wwwroot
+        git init
+        git add -A
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m 'deploy'
+
+    # force push the static files inside the wwwroot folder to the master branch
+    - name: GitHub Push
+      uses: ad-m/github-push-action@v0.5.0
+      with:
+        # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        # Repository name to push. Default or empty value represents current github repository (${GITHUB_REPOSITORY})
+        # repository: # optional, default is
+        # Destination branch to push changes
+        # branch: # optional, default is master
+        # Determines if force push is used
+        force: true
+        # Directory to change to before pushing.
+        directory: ./wwwroot

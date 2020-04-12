@@ -48,7 +48,7 @@ Let us add some additional advice:
 - You can also try to follow through the tutorial using the [Katacoda](https://www.katacoda.com/) **online environment**. This will let you follow without having to locally install kubectl and minikube, directly interacting with the cluster through the website. However, you might experience **some limitations/differences** that we will try to point out during the tutorial.
 
 ::: tip
-Do you already have a local cluster using a different way than minikube? Thats fine, as long as you have your own local cluster you can play with, you will be able to follow along.
+Do you already have a local cluster setup in a different way than minikube? Thats fine too. As long as you have _a cluster_ that you can play with, you will be able to follow along.
 :::
 
 ### Installation in Mac using Homebrew
