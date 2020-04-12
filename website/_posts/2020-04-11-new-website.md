@@ -16,9 +16,9 @@ I have been postponing the moment to rewrite the Kaizen Dorks website far too lo
 
 It's been roughly a year (13 months according to the [GitHub history](https://github.com/kaizendorks/kaizendorks.github.io/commit/45a134dc01de75639495b02b4ce2c2f7b2ee37a0)) since I created the initial version of the website using Jekyll.
 
-It is mostly my fault that it barely got past the initial commit and never had much content! I was meant to keep exploring Jekyll and finish the basic functionality of the website, ie a place where we can showcase our projects, host our tutorials and publish blog entries. However, I wasn't finding the motivation to go deeper with my choice of Jekyll, nor liking much [the template](https://github.com/mmistakes/minimal-mistakes) I had initially chosen.
+It is mostly my fault that it barely got past the initial commit and never had much content! I was meant to keep exploring Jekyll and finish the basic functionality of the website, i.e. a place where we can showcase our projects, host our tutorials and publish blog entries. However, I wasn't finding the motivation to go deeper with my choice of Jekyll, nor liking much [the template](https://github.com/mmistakes/minimal-mistakes) I had initially chosen.
 
-It is in these covid days that I finally found the motivation to go back, rewrite the website and fill it with some initial content. As a way of keeping one's head far from the covid talk, it works really well. But it was also long due having a website where the good work we have done in little over a year could be showcased!
+It is in these covid days that I finally found the motivation to go back, rewrite the website and fill it with some initial content. As a way of keeping one's head further from the covid talk, it worked really well. But it was also long due having a website where the good work we have done in little over a year could be showcased!
 
 ## Site contents
 

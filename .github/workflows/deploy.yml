@@ -43,7 +43,7 @@ jobs:
         git commit -m 'deploy'
 
     # force push the static files inside the wwwroot folder to the master branch
-    - name: GitHub Push
+    - name: Force push to master
       uses: ad-m/github-push-action@v0.5.0
       with:
         # Token for the repo. Can be passed in using $\{{ secrets.GITHUB_TOKEN }}
