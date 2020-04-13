@@ -20,7 +20,7 @@ It is mostly my fault that it barely got past the initial commit and never had m
 
 It is in these covid days that I finally found the motivation to go back, rewrite the website and fill it with some initial content. As a way of keeping one's head further from the covid talk, it worked really well. But it was also long due having a website where the good work we have done in little over a year could be showcased!
 
-## Site contents
+## Initial website contents
 
 When you look back, since the beginning of 2019 we have published:
 - 6 npm [packages](/tag/npm/)
@@ -52,7 +52,7 @@ One way or another, I wasn't enjoying what I was doing, and this was meant to be
 
 ![The old website](./images/2020-04-11-new-website/old-website.png)
 
-### The vuepress experience
+### The switch to vuepress
 
 Of course I started ignored the website and never couldn't really force myselt to look into it. Until covid came of course, with plenty of time to spend at home!
 
@@ -83,7 +83,7 @@ A couple of days later, with some layout overwritten, some components rescued fr
 
 Now that the site is ready and feels fresh, I personally have _big plans_ to write and add more content (at least until the novelty or covid fade away, we'll see what comes first 😭)
 
-### Tutorials
+### New tutorials
 
 It could be interesting to extract a new tutorial from my experience getting static sites in GitHub pages, explorying different static site generators such as [Jekyll](https://jekyllrb.com/), [gatsby.js](https://www.gatsbyjs.org/) and [vuepress](https://vuepress.vuejs.org/).
 
@@ -91,7 +91,7 @@ I am not sure everyone realizes how straightforward it is to get your own site h
 
 After several different [Vue CLI plugins](/tag/Vue%20CLI/), I feel like we could also write another one on how to create, test and publish one of these plugins.
 
-### Articles
+### Article ideas
 
 Creating the site, I realized that [extending](https://vuepress.vuejs.org/theme/inheritance.html#motivation) one of the default [vuepress](https://vuepress.vuejs.org/) themes is easy _once you know the theme you are extending_. The documentation of the themes isn't as easy to consume as the default vuepress documentation, nor won't necessarily tell you the inner details you need to know when extending. A write up on how to do this could be interesting.
 

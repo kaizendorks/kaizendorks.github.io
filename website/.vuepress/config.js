@@ -109,7 +109,7 @@ module.exports = {
       '/tutorials/': [
         '',
         {
-          title: 'Kubernetes',
+          title: 'Kubernetes for Developers',
           children: [
             ['kubernetes/', 'Welcome'],
             ['kubernetes/1-clusters-nodes', '1. Clusters and Nodes'],

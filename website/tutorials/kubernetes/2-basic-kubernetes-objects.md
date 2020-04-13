@@ -398,4 +398,5 @@ You will agree with us that having to find out the Pod's IP feels _hacky_. And t
 That's why networking basics are the focus of the [next module](./3-basic-networking.md)!
 :::
 
-[Prev module](./1-clusters-nodes.md) | [Next module](./3-basic-networking.md)
+<tutorial-call-to-action-link title="Prev module" to="./1-clusters-nodes" />
+<tutorial-call-to-action-link title="Next module" to="./3-basic-networking" />
