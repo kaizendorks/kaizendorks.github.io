@@ -20,7 +20,7 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
-    # Installs dependencies and generates static files
+    # Installs dependencies and generates static files inside the wwwroot folder
     - name: Generate static files in wwwroot
       uses: actions/setup-node@v1
       with:
@@ -28,11 +28,12 @@ jobs:
     - run: npm ci
     - run: npm run build
 
-    # - name: Run a multi-line script
-    #   run: |
-    #     cd wwwroot,
-    #     echo test, and deploy your project.
+    # Copy extra files to the wwwroot folder
+    - run: |
+        cp ./README.md ./wwwroot/README.md
+        cp ./LICENSE ./wwwroot/LICENSE
 
+    # Create a fresh git repo in wwwroot
     - name: Init new repo in wwwroot and commit generated files
       run: |
         cd wwwroot
