@@ -194,6 +194,14 @@ module.exports = {
         },
       },
     ],
+    // Check for broken links in markdown files. See https://github.com/ulivz/vuepress-plugin-check-md
+    // Run from the command line using vuepress check-md website
+    [
+      'check-md',
+      {
+        exitLevel: 'none'
+      }
+    ]
   ],
   configureWebpack: (config, isServer) => {
     if (!isServer) {
