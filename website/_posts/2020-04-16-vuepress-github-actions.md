@@ -307,7 +307,7 @@ Let's take this site (the Kaizen Dorks one) as an example:
 - We have modified the default `vuepress` configuration so the static files are generated into the `wwwroot` folder rather than the default `docs/.vuepress/dist`
 
 There is only a few lines you need to change:
-```yaml{20,31,33}
+```yaml{4,20,31,33}
 name: Deploy to GitHub pages
 on:
   push:
