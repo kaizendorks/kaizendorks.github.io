@@ -194,6 +194,17 @@ module.exports = {
         },
       },
     ],
+    // Social share plugin. See https://sns.goyfe.com/guide/#install
+    [
+      'social-share',
+      {
+        networks: ['twitter', 'reddit', 'facebook', 'whatsapp', 'telegram'],
+        twitterUser: 'DorksKaizen',
+        fallbackImage: '/logo_navbar.png',
+        isPlain: true,
+        noGlobalSocialShare: true
+      },
+    ],
     // Check for broken links in markdown files. See https://github.com/ulivz/vuepress-plugin-check-md
     // Run from the command line using vuepress check-md website
     [
