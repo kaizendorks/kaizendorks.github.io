@@ -153,6 +153,19 @@ module.exports = {
         updatePopup: true
       }
     ],
+    // Add the official image-zoom plugin. See https://vuepress.github.io/en/plugins/medium-zoom/#installation
+    [
+      '@vuepress/plugin-medium-zoom',
+      {
+        selector: '.theme-container .page img',
+        delay: 500,
+        options: {
+          margin: 24,
+          // background: '#BADA55',
+          // scrollOffset: 0,
+        },
+      },
+    ],
     // Add back the tip/warning/danger containers of the vuepress-plugin-container
     [
       'vuepress-plugin-container',

@@ -59,15 +59,25 @@ Then head to http://localhost:8080 in your browser.
 
 The site is deployed to GitHub pages as per official [vuepress guidance](https://vuepress.vuejs.org/guide/deploy.html#github-pages).
 
-In order to deploy:
-1. Configure GitHub pages for your repo as per the [vuepress guidance](https://vuepress.vuejs.org/guide/deploy.html#github-pages).
+Since this is an organization repo, the files for the GitHub pages site need to be located in the master branch of the repo. See [official docs](https://help.github.com/en/github/working-with-github-pages/about-github-pages#publishing-sources-for-github-pages-sites). (You could switch your "main" branch to a different branch, but then GitHub pages also needs the site files to be located there)
+
+Deployment essentially means:
+1. run the vuepress build command `npm run build`, which generates the files in `./wwwroot`
+1. switch over to the folder where the static contents are generated `cd ./wwwroot`
+1. initialize a new git repo
+1. force push the contents of the `wwwroot` folder to master
+
+### Automatic deploy via GitHub actions
+By commiting code to the `source` branch, you will trigger the configured [GitHub action](https://help.github.com/en/actions) workflow as per the `.github/workflows/deploy.yml` file.
+
+The workflow file essentially codifies the steps outlined above.
+- Uses [Node action](https://help.github.com/en/actions/language-and-framework-guides/using-nodejs-with-github-actions) to run the `npm` commands that build the vuepress site.
+- Users the community provided [github-push action](https://github.com/marketplace/actions/github-push) to force push the resulting files to the master branch.
+
+### Manual deploy
+
 1. Make sure you are in the **source branch**, and not in master
 1. Run the deploy script
     ```bash
     ./deploy.sh
     ```
-
-The deploy script essentially:
-1. runs the vuepress build command `npm run build`
-1. switches over to the folder where the static contents are generated `cd ./wwwroot`
-1. overwrites the master branch with the contents of that folder `git push -f`

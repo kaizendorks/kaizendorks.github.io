@@ -43,7 +43,7 @@ jobs:
         git config --local user.name "GitHub Action"
         git commit -m 'deploy'
 
-    # force push the static files inside the wwwroot folder to the master branch
+    # force push the contents of the wwwroot folder to the master branch
     - name: Force push to master
       uses: ad-m/github-push-action@v0.5.0
       with:

@@ -22,4 +22,5 @@ git push -f git@github.com:kaizendorks/kaizendorks.github.io.git master
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 
+# Back to previous directory (the root of your repo)
 cd -

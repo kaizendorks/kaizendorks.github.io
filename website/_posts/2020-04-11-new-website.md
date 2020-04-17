@@ -4,7 +4,7 @@ tags:
   - blog
   - Jekyll
   - vuepress
-  - GitHub pages
+  - GitHub Pages
 author: Daniel
 location: Dublin, Ireland
 summary: I have been postponing the moment to rewrite the Kaizen Dorks website far too long. It's been roughly a year (13 months according to the GitHub history) since I created the initial version of the website using Jekyll.
