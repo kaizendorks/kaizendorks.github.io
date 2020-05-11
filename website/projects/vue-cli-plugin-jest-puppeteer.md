@@ -23,7 +23,7 @@ vue add jest-puppeteer
 ```
 :::
 
-The plugin will update your Vue application with the necessary plumbing to run E2E tests using [Jest]https://jestjs.io/) and [Puppeteer](https://pptr.dev/):
+The plugin will update your Vue application with the necessary plumbing to run E2E tests using [Jest](https://jestjs.io/) and [Puppeteer](https://pptr.dev/):
 - Installs and configures both libraries and the necessary dependencies
 - Adds a new command so you can run the tests using `npm run test:e2e`
 - Adds a sample test.
