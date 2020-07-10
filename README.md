@@ -43,6 +43,21 @@ You can get the site running locally with a few steps:
     ```bash
     git checkout source
     ```
+1. You have a couple options for running the development site (Docker v Native).
+
+### Docker
+
+1. Buld and run the container
+    ```bash
+    docker-compose up
+    ```
+1. (Optional) Clean up containers and volumes when you're done
+    ```bash
+    docker-compose down -v
+    ```
+
+### Native
+
 1. Install the dependencies
     ```bash
     npm i
