@@ -1,0 +1,16 @@
+version: '3.7'
+
+volumes:
+  node_modules:
+
+services:
+  app:
+    build:
+      context: .
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/home/node/app/
+      - /home/node/.npm
+      - node_modules:/home/node/app/node_modules
