@@ -150,16 +150,20 @@ This is because the `Service` we created is of the default type of service defin
 
 Therefore, the purpose of a **ClusterIP service** is to facilitate the communication between applications hosted in the cluster.
 
-That’s why Kubernetes defines other types of services for different purposes, like allowing traffic from outside the cluster to reach the desired Pods and containers. In this section we are goin to explore how to use a **NodePort service**.
+That’s also why Kubernetes defines other types of services and objects for different purposes, like allowing traffic from outside the cluster to reach the desired Pods and containers.
 
 ### NodePort services
 
+Let's begin by exploring how to use a **NodePort service**. These are very frequently used during development and/or debugging, since they are a quick and easy way to expose a service (although not one you want to rely on for production purposes).
+
 What a [NodePort service](https://kubernetes.io/docs/concepts/services-networking/service/#nodeport) does is to publish the service in a random port (by default, the range `30000-32767`, but this is configurable) of every one of the cluster's nodes (Remember, in the case of minikube there is a single Node).
 
-Therefore, as long as you are in the same network than the node, you will be able to reach the service.
+Therefore, as long as you are in the same network than the node, you will be able to reach the service. The following diagram shows a simplified view of a NodePort service in a cluster with a single node:
 
-For this section, let's use a different example than the echo server we have used so far. Let's use a [Kibana](https://www.elastic.co/kibana) server instead!. You can easily create a `Deployment` to host kibana in our cluster using the images publicly available in Docker Hub:
-```
+![Simplified view of a NodePort service in a cluster with a single node](./images/nodeport-service.png)
+
+Let's see how we can create one. As our test application, let's use a [Kibana](https://www.elastic.co/kibana) server rather than the echo-server we have used so far. You can easily create a `Deployment` to host kibana in our cluster using the images publicly available in Docker Hub:
+```bash
 $ kubectl create deployment kibana --image=kibana:7.6.1
 ```
 
@@ -170,7 +174,7 @@ NAME                     READY   STATUS    RESTARTS   AGE
 kibana-9d6df8c77-qz6mk   1/1     Running   0          3m59s
 ```
 
-Awesome, we have a Kibana server deployed to our cluster! So, how can reach its default port (5601) from our browser?
+Awesome, we have a Kibana server deployed to our cluster! Now let's expose its port `5601` so we can open it in the browser.
 
 We can easily create a **NodePort service** using the `kubectl expose` command. This saves us from having to manually define the YAML manifest of the Service (Make sure to expose the default kibana port, `5601`)
 ```bash{1}
@@ -185,9 +189,14 @@ NAME     TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
 kibana   NodePort   10.109.121.219   <none>        5601:30937/TCP   173m
 ```
 
-This means you can now open `http://192.168.64.4:30937/` in your browser (Note that the exact IP and port is likely to be different in your machine). You should see a very unimpressive Kibana server is not ready yet message, since we never connected kibana to an [elasticsearch](https://www.elastic.co/products/elasticsearch) server!
+From the output above, you can see the port in which the service been exposed, `30937`. Now you just need to combine this with the IP of one of the nodes of the cluster. When using minikube you can get it by running:
+```bash{1}
+$ minikube ip
+192.168.64.4
+```
 
-![Reaching Kibana from our browser](./images/kibana-browser.png)
+This means you can now open `http://192.168.64.4:30937/` in your browser (Note that the exact IP and port is likely to be different in your machine). You should see a very unimpressive message _Kibana server is not ready yet_, since we never connected kibana to an [elasticsearch](https://www.elastic.co/products/elasticsearch) server!
+- As an exercise, try to deploy an [elasticsearch](https://www.elastic.co/products/elasticsearch) server to the cluster and connect it to your kibana Deployment!
 
 ::: tip
 Since we are using `minikube`, once a NodePort service is created you can simply use the following command to automatically open it in your browser:
@@ -197,17 +206,143 @@ $ minikube service kibana
 :::
 
 ::: warning Following online in Katacoda?
-You won’t be able to access the exposed service in your browser. However, you will still be able to create the service and verify it works from outside the cluster!
+If you are running in Katacoda, you won't be able to reach out the server returned by the `minikube ip` command. You also won't be able to open it in the browser using the `minikube service kibana` command.
 
-Once you find out the port assigned to the service (for example, 31770) run the following command in the Katacoda shell:
+Don't worry, instead you just need to:
+- get the service port using `kubectl get service`
+- Clicking the `+` icon at the top of the tabs, then click _Select port to view on Host 1_ from the menu
+- A new browser tab will open. When prompted, enter the service port
+
+Alternatively, you can just send a request using `curl`. From the Katacoda shell run:
 ```bash
 $ curl $(minikube ip):31770
 ```
-
-You should get a 503 response with the expected Kibana server is not ready yet message.
+You should get a 503 response with the expected _Kibana server is not ready yet_ message.
 :::
 
-And this finishes the overview on the basic Kuberntes networking features. As an exercise, try to deploy an [elasticsearch](https://www.elastic.co/products/elasticsearch) server to the cluster and connect it to your kibana Deployment!
+![Reaching Kibana from our browser](./images/kibana-browser.png)
 
+### Ingress
+
+Every time a **NodePort** service is created, a random port is assigned to it. And each different service will get its own port assigned. This makes them great for quickly exposing a service during development/debugging, but not something you want to rely upon for your production workloads.
+
+That is why Kubernetes provides another abstraction designing for exposing primarily HTTP/S services outside the cluster, the [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object. With an Ingress, you can specify a map between a specific host name (like `my-service.my-company.io`) and a regular Kubernetes service.
+
+::: tip
+Before we can use an `Ingress` object with `minikube`, we need fist to enable the ingress addon:
+```bash
+$ minikube addons enable ingress
+```
+> If you are running in mac, you might need to recreate your minikube environment using `minikube start --vm=true`
+:::
+
+Let's see an example. This time we will use a simple web application in our test, so begin by creating a `Deployment` with:
+```bash
+$ kubectl create deployment webapp --image=nginxdemos/hello
+```
+
+Before we can create an Ingress, we need to create a regular `Service` like the ones we saw in the [networking inside the cluster section](#networking-inside-the-cluster). The container for this web application is listening on port `80`, so let's create a service like:
+```bash
+$ cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp-service
+spec:
+  selector:
+    app: webapp
+  ports:
+  - port: 80
+    targetPort: 80
+EOF
+```
+
+Now we have all the pieces in place to create our first [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) object. We are going to map the host name `my-webapp.contoso.io` to the service `webapp-service` we have just created. The service itself maps to the actual container running the web application:
+```bash
+$ cat <<EOF | kubectl apply -f -
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webapp-ingress
+spec:
+  rules:
+  - host: my-webapp.contoso.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: webapp-service
+            port:
+              number: 80
+EOF
+```
+
+:::warning
+In versions **prior to Kubernetes 1.19**, the Ingress is defined with a different schema. The equivalent would be:
+```
+cat <<EOF | kubectl apply -f -
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webapp-ingress
+spec:
+  rules:
+  - host: my-webapp.contoso.io
+    http:
+      paths:
+      - backend:
+          serviceName: webapp-service
+          servicePort: 80
+EOF
+```
+Depending on the version, you might even need to use `apiVersion: extensions/v1beta1`.
+
+Check your Kubernetes version by running `kubectl version` and look at the server version.
+:::
+
+You might be wondering, how is this going to enable traffic from outside the cluster? That is because in the Kubernetes cluster, we have an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/), that we just deployed when we enabled the minikuke ingress addon.
+> Minikube adds the [NGINX Ingress controller](https://kubernetes.github.io/ingress-nginx/) when enabling the Ingress addon. If you inspect your cluster, you will see it in the `kube-system` namespace.
+
+Let's see how the Ingress controllers work:
+- This controller is deployed to every node of the cluster, and traditionally listens on ports 80/443.
+- A request sent to port 80/443 of any node in the cluster is then handled by the `Ingress controller`.
+- The controller will inspect the host name in the request (like `my-webapp.contoso.io` in a request like `http://my-webapp.contoso.io`), and call the relevant downstream service according to all the `Ingress` objects that were defined (ie, the `webapp-service` in our example)
+
+The following diagram shows this process taking a simplified view of a cluster with a single node:
+![Simplified view of Ingress objects in a cluster with a single node](./images/ingress.png)
+
+So all that is left to see our Ingress working is to create a DNS entry that points `my-webapp.contoso.io` to the IP of your cluster nodes. This is easy in our minikube environment since there is only a single node.
+- Get the node IP using
+    ```bash
+    $ minikube ip
+    192.168.64.4
+    ```
+- Update the hosts file of your local machine (found in `/etc/hosts` for Mac/Linux and `C:\Windows\System32\Drivers\etc\hosts` for Windows). Add a new entry like:
+    ```bash
+    192.168.64.4 my-webapp.contoso.io
+    ```
+
+:::tip
+In production clusters, this is usually solved with a load balancer that sits in fronts of your nodes. The load balancer also listens on ports 80/443, and balances requests across all the nodes.
+
+Therefore, you create DNS entries that map the desired host name with the IP of the _load balancer_.
+:::
+
+Once you save the modified hosts file, navigate to http://my-webapp.contoso.io in your browser. You should see the sample hello-world website in all its glory!
+![Sample website accessed as an Ingress](./images/ingress-website-in-browser.png)
+
+::: warning Following online in Katacoda?
+If you are running in Katacoda, you won't be able to map its host file and test your Ingress the same way we did locally.
+
+However you can send a request using `curl` from the Katacoda shell that simulates the change made to the local hosts file. Using the `--resolve` option we can manually tell curl to map `my-webapp.contoso.io` to the IP returned by `minikube ip`:
+```bash
+$ curl --resolve my-webapp.contoso.io:80:$(minikube ip) http://my-webapp.contoso.io
+```
+You should see the HTML page printed to the Katacoda shell.
+:::
+
+This concludes the networking basics. Together with the previous modules of the tutorial, you should now have a very strong base! In addition to feeling more comfortable using Kubernetes as a developer, this base should help you learning more advanced topics.
 
 <tutorial-call-to-action-link title="Prev module" to="./2-basic-kubernetes-objects" />
