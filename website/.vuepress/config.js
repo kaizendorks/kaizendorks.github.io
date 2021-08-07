@@ -115,6 +115,8 @@ module.exports = {
             ['kubernetes/1-clusters-nodes', '1. Clusters and Nodes'],
             ['kubernetes/2-basic-kubernetes-objects', '2. Basic Kubernetes Objects'],
             ['kubernetes/3-basic-networking', '3. Basic Networking'],
+            ['kubernetes/4-persistent-volumes', '4. Persistent Volumes'],
+            ['kubernetes/5-helm-charts', '5. Helm Charts'],
           ],
         },
       ]

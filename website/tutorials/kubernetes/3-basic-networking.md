@@ -346,3 +346,4 @@ You should see the HTML page printed to the Katacoda shell.
 This concludes the networking basics. Together with the previous modules of the tutorial, you should now have a very strong base! In addition to feeling more comfortable using Kubernetes as a developer, this base should help you learning more advanced topics.
 
 <tutorial-call-to-action-link title="Prev module" to="./2-basic-kubernetes-objects" />
+<tutorial-call-to-action-link title="Next module" to="./4-persistent-volumes" />
