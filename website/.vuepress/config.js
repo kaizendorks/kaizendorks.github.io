@@ -95,11 +95,12 @@ module.exports = {
           path: '/projects',
           collapsable: false,
           children: [
+            ['/projects/dexa', 'dexa'],
             ['/projects/nexus-operator', 'nexus-operator'],
             ['/projects/pymongo-inmemory', 'pymongo-inmemory'],
             ['/projects/sinon-mongo', 'sinon-mongo'],
-            ['/projects/vue-autowire', 'vue-autowire'],
             ['/projects/vuecli-in-docker', 'vuecli-in-docker'],
+            ['/projects/vue-autowire', 'vue-autowire'],
             ['/projects/vue-cli-plugin-auth0', 'vue-cli-plugin-auth0'],
             ['/projects/vue-cli-plugin-jest-puppeteer', 'vue-cli-plugin-jest-puppeteer'],
             ['/projects/vue-cli-plugin-vuedock', 'vue-cli-plugin-vuedock'],
